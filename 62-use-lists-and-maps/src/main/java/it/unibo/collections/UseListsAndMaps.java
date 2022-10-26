@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -12,6 +13,12 @@ import java.util.concurrent.TimeUnit;
  */
 public final class UseListsAndMaps {
     private final static int ELEMS = 100000;
+    private static final long AFRICA = 1_110_635_000L;
+    private static final long AMERICAS = 972_005_000L;
+    private static final long ANTARCTICA = 0L;
+    private static final long ASIA= 4_298_723_000L;
+    private static final long EUROPE = 742_452_000L;
+    private static final long OCEANIA = 38_304_000L;
 
     private UseListsAndMaps() {
     }
@@ -25,7 +32,7 @@ public final class UseListsAndMaps {
          * 1) Create a new ArrayList<Integer>, and populate it with the numbers
          * from 1000 (included) to 2000 (excluded).
          */
-        ArrayList<Integer> array = new ArrayList<Integer>();
+        final ArrayList<Integer> array = new ArrayList<Integer>();
         for (int i=1000;i<2000;i++) {
             array.add(i);
         }
@@ -34,13 +41,13 @@ public final class UseListsAndMaps {
          * without using any looping construct (for, while), populate it with
          * the same contents of the list of point 1.
          */
-        LinkedList<Integer> list = new LinkedList<Integer>(array);
+        final LinkedList<Integer> list = new LinkedList<Integer>(array);
         /*
          * 3) Using "set" and "get" and "size" methods, swap the first and last
          * element of the first list. You can not use any "magic number".
          * (Suggestion: use a temporary variable)
          */
-        int tmp = list.getFirst();
+        final int tmp = list.getFirst();
         list.set(0, list.getLast());
         list.set(999, tmp);
         /*
@@ -144,6 +151,14 @@ public final class UseListsAndMaps {
          *
          * Oceania -> 38,304,000
          */
+        final Map<String, Long> mappa = new TreeMap<>();
+        mappa.put("Africa", AFRICA);
+        mappa.put("Americas", AMERICAS);
+        mappa.put("Antartica", ANTARCTICA);
+        mappa.put("Asia", ASIA);
+        mappa.put("Europe", EUROPE);
+        mappa.put("Oceania", OCEANIA);
+
         /*
          * 8) Compute the population of the world
          */
