@@ -162,5 +162,10 @@ public final class UseListsAndMaps {
         /*
          * 8) Compute the population of the world
          */
+        long totalePopolazione = 0;
+        for (final long valore : mappa.values()) {
+            totalePopolazione += valore;
+        }
+        System.out.println("Popolazione totale :" + totalePopolazione);
     }
 }
