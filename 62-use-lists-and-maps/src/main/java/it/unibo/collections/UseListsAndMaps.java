@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Example class using {@link List} and {@link Map}.
  *
  */
 public final class UseListsAndMaps {
+    private final static int ELEMS = 100000;
 
     private UseListsAndMaps() {
     }
@@ -54,13 +56,45 @@ public final class UseListsAndMaps {
          * using the previous lists. In order to measure times, use as example
          * TestPerformance.java.
          */
-        
+        long time = System.nanoTime();
+        for (int i = 1; i <= ELEMS; i++) {
+            array.add(i);
+        }
+        time = System.nanoTime() - time;
+        final var millis = TimeUnit.NANOSECONDS.toMillis(time);
+        System.out.println("ArrayList ------");
+        System.out.println(
+            "Converting "
+                + array.size()
+                + " ints to String and inserting them in a Set took "
+                + time
+                + "ns ("
+                + millis
+                + "ms)"
+        );
+        time = System.nanoTime();
+        for (int i = 1; i <= ELEMS; i++) {
+            list.add(i);
+        }
+        time = System.nanoTime() - time;
+        final var millis2 = TimeUnit.NANOSECONDS.toMillis(time);
+        System.out.println("LinkedList ------");
+        System.out.println(
+            "Converting "
+                + list.size()
+                + " ints to String and inserting them in a Set took "
+                + time
+                + "ns ("
+                + millis2
+                + "ms)"
+        );
         /*
          * 6) Measure the performance of reading 1000 times an element whose
          * position is in the middle of the collection for both ArrayList and
          * LinkedList, using the collections of point 5. In order to measure
          * times, use as example PerfTest.java.
          */
+        
         /*
          * 7) Build a new Map that associates to each continent's name its
          * population:
