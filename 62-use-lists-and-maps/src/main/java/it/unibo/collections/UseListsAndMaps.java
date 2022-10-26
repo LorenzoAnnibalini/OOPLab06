@@ -66,7 +66,7 @@ public final class UseListsAndMaps {
         System.out.println(
             "Converting "
                 + array.size()
-                + " ints to String and inserting them in a Set took "
+                + " ints to String and inserting them in a ArrayList took "
                 + time
                 + "ns ("
                 + millis
@@ -82,7 +82,7 @@ public final class UseListsAndMaps {
         System.out.println(
             "Converting "
                 + list.size()
-                + " ints to String and inserting them in a Set took "
+                + " ints to String and inserting them in a LinkedList took "
                 + time
                 + "ns ("
                 + millis2
@@ -94,7 +94,40 @@ public final class UseListsAndMaps {
          * LinkedList, using the collections of point 5. In order to measure
          * times, use as example PerfTest.java.
          */
-        
+        time = System.nanoTime();
+        int tmpget;
+        for (int i = 1; i <= ELEMS; i++) {
+            tmpget = array.get((array.size())/2);
+        }
+        time = System.nanoTime() - time;
+        final var millis3 = TimeUnit.NANOSECONDS.toMillis(time);
+        System.out.println("ArrayList ------");
+        System.out.println(
+            "Converting "
+                + array.size()
+                + " ints to String and search them in a ArrayList took "
+                + time
+                + "ns ("
+                + millis3
+                + "ms)"
+        );
+        time = System.nanoTime();
+        for (int i = 1; i <= ELEMS; i++) {
+            tmpget=list.get((list.size())/2);
+        }
+        time = System.nanoTime() - time;
+        final var millis4 = TimeUnit.NANOSECONDS.toMillis(time);
+        System.out.println("LinkedList ------");
+        System.out.println(
+            "Converting "
+                + list.size()
+                + " ints to String and Serach them in a Sthe LinkedList took "
+                + time
+                + "ns ("
+                + millis4
+                + "ms)"
+        );
+
         /*
          * 7) Build a new Map that associates to each continent's name its
          * population:
