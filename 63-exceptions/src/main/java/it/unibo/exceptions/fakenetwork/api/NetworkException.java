@@ -1,14 +1,14 @@
-package it.unibo.exceptions.fakenetwork.impl;
+package it.unibo.exceptions.fakenetwork.api;
 
 import java.io.IOException;
 
 public class NetworkException extends IOException {
    
-    public NetworkException() throws Exception {
+    public NetworkException() throws IOException {
         super("Network error: no response");
     }
 
-    public NetworkException( final String message) throws Exception {
+    public NetworkException( final String message) throws IOException {
         super("Network error while sending message: " + message);
     }
 }
