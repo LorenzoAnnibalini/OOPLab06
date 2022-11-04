@@ -61,7 +61,7 @@ public final class UseArithmeticService {
 
     private static String retryReceiveOnNetworkError(final NetworkComponent server) {
         boolean send = false;
-        String message ;
+        String message = "";
         while (!send){
             try{
                 message=server.receiveResponse();
@@ -74,7 +74,7 @@ public final class UseArithmeticService {
         return message;
     }
 
-    private static void assertEqualsAsDouble(finalString expected, final String actual) {
+    private static void assertEqualsAsDouble(final String expected, final String actual) {
         final var message = ": expected " + expected + " and received " + actual;
         if (Double.parseDouble(expected) == Double.parseDouble(actual)) {
             LOG.println("Success" + message);
@@ -83,7 +83,7 @@ public final class UseArithmeticService {
         }
     }
 
-    private static void assertCom puteResult(
+    private static void assertComputeResult(
         final NetworkComponent server,
         final String expected,
         final String... operation
