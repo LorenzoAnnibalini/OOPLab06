@@ -57,3 +57,4 @@ git remote add mio https://github.com/LorenzoAnnibaliniUnibo/61-git-remotes-merg
 git push mio master
 
 9. Si setti il branch remoto `master` del nuovo repository come *upstream* per il proprio branch `master` locale
+git push --set-upstream origin exercises
